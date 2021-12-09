@@ -18,21 +18,26 @@ namespace guiTask_5
         }
         void f(double x)
         {
-            double res = Math.Log(x * x * x * x - 1) * Math.Log(1 + x);
-            if ((x * x * x * x - 1) < 0 || (1 + x) < 0)
+            if ((3 * x) < 0)
             {
                 throw new Exception("Логарифм отрицательного числа");
             }
-            if ((x * x * x * x - 1) == 0 || (1 + x) == 0)
+            if ((2 * x * x * x * x * x - 1) < 0)
+            {
+                throw new Exception("Квадратный корень из отрицательного числа");
+            }
+            if ((3 * x) == 0)
             {
                 throw new Exception("Логарифм нуля - бесконечность");
             }
+            double res = Math.Log(3 * x) * Math.Sqrt(2 * x * x * x * x * x - 1);
             labRes.Text += "f(" + x.ToString() + ") = " + res.ToString() + '\n';
         }
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                labRes.Text = String.Empty;
                 double a = Double.Parse(tbA.Text);
                 double b = Double.Parse(tbB.Text);
                 double h = Double.Parse(tbH.Text);
